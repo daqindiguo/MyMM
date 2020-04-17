@@ -1,6 +1,10 @@
 package com.scott.mymm
 
+import android.util.Log
+import android.widget.ImageView
+import androidx.databinding.BindingAdapter
 import androidx.lifecycle.MutableLiveData
+import com.bumptech.glide.Glide
 import com.scott.base.BaseViewModel
 import com.scott.bean.BannerBean
 import com.scott.http.HomeNetWork
@@ -18,4 +22,17 @@ class MainViewModel : BaseViewModel() {
             name.value = it.data
         })
     }
+
+    companion object{
+        @JvmStatic
+        @BindingAdapter("imageUrl")
+        fun loadImage(imageView:ImageView,url:String?){
+            Log.e("url===",""+url)
+            Glide.with(imageView.context).load(url)
+                .placeholder(R.mipmap.ic_launcher)
+                .into(imageView);
+        }
+    }
+
+
 }

@@ -1,7 +1,7 @@
 package com.scott.service
 
-import com.scott.bean.BannerBean
 import com.scott.base.BaseResult
+import com.scott.bean.BannerBean
 import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query
