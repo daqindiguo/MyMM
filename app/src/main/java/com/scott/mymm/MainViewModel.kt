@@ -12,7 +12,7 @@ class MainViewModel : BaseViewModel() {
     var name = MutableLiveData<List<BannerBean>>()
 
     fun getBanner() {
-        request(block = {
+        launchRequest(block = {
             HomeNetWork.getInstance().getBannerData()
         }, success = {
             name.value = it.data

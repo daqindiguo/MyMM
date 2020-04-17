@@ -9,17 +9,14 @@ import com.scott.mymm.databinding.ActivityLoginBinding
 
 class LoginActivity : BaseActivity<LoginViewModel, ActivityLoginBinding>() {
 
-    override fun rootViewId(): Int {
-        return R.layout.activity_login
-    }
-
     override val initVariableId: Int get() = BR.loginModel
+    override val rootViewId: Int get() = R.layout.activity_login
 
 
     override fun initView() {
         viewModel.success.observe(
             this,
-            Observer { startActivity(MainActivity::class.java)})
+            Observer { startActivity(MainActivity::class.java) })
     }
 
     override fun initData() {

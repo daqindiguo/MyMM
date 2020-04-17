@@ -12,6 +12,7 @@ import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.swiperefreshlayout.widget.CircularProgressDrawable
+import com.scott.ext.getVmClazz
 import com.scott.utils.DensityUtil
 import com.scott.utils.MaterialCircleImageView
 import java.lang.reflect.ParameterizedType
@@ -26,6 +27,9 @@ abstract class BaseActivity<VM : BaseViewModel, DB : ViewDataBinding> : AppCompa
     private var loadingProgressView: CircularProgressDrawable? = null
 
     abstract val initVariableId:Int
+    abstract val rootViewId: Int
+    abstract fun initView()
+    abstract fun initData()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,7 +40,7 @@ abstract class BaseActivity<VM : BaseViewModel, DB : ViewDataBinding> : AppCompa
     }
 
     private fun initViewDataBinding() {
-        dataBinding = DataBindingUtil.setContentView(this, rootViewId()) as DB
+        dataBinding = DataBindingUtil.setContentView(this, rootViewId) as DB
         viewModel = createViewModel()
         dataBinding.setVariable(initVariableId, viewModel)
         dataBinding.lifecycleOwner = this
@@ -60,29 +64,20 @@ abstract class BaseActivity<VM : BaseViewModel, DB : ViewDataBinding> : AppCompa
         hideLoading()
     }
 
-    private fun showLoading() {
+    fun showLoading() {
         loadingProgressView?.start()
         loadingView?.visibility = View.VISIBLE
     }
 
-    private fun hideLoading() {
+    fun hideLoading() {
         loadingProgressView?.stop()
         loadingView?.visibility = View.GONE
     }
-
-    abstract fun rootViewId(): Int
-    abstract fun initView()
-    abstract fun initData()
-
 
     private fun createViewModel(): VM {
         return ViewModelProvider(this).get(getVmClazz(this) as Class<VM>)
     }
 
-    @Suppress("UNCHECKED_CAST")
-    fun <VM> getVmClazz(obj: Any): VM {
-        return (obj.javaClass.genericSuperclass as ParameterizedType).actualTypeArguments[0] as VM
-    }
 
     fun startActivity(cls:Class<*>){
         val intent = Intent(this, cls)

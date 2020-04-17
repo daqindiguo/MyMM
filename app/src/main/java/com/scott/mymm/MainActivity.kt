@@ -12,6 +12,7 @@ class MainActivity : BaseActivity<MainViewModel, ActivityMainBinding>() {
     }
 
     override val initVariableId: Int get() = BR.viewmodel
+    override val rootViewId: Int get() = R.layout.activity_main
 
     override fun initData() {
         viewModel.getBanner()
@@ -20,9 +21,6 @@ class MainActivity : BaseActivity<MainViewModel, ActivityMainBinding>() {
         })
     }
 
-    override fun rootViewId(): Int {
-        return R.layout.activity_main
-    }
 
 
 }

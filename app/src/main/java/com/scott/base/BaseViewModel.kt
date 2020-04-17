@@ -19,7 +19,7 @@ open class BaseViewModel : ViewModel(), LifecycleObserver {
     val showDialog by lazy { SingleLiveEvent<Void>() }
     val hideDialog by lazy { SingleLiveEvent<Void>() }
 
-    fun <T> request(
+    fun <T> launchRequest(
         block: suspend CoroutineScope.() -> BaseResult<T>,
         success: (BaseResult<T>) -> Unit = {},
         isShowDialog: Boolean = true
