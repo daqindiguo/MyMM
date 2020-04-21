@@ -12,16 +12,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public abstract class BaseDBRVAdapter<Data> extends RecyclerView.Adapter<BaseDBRVHolder> {
+public abstract class BaseDBRVAdapter<T> extends RecyclerView.Adapter<BaseDBRVHolder> {
 
-    private List<Data> data;
-    protected OnItemClickListener<Data> listener;
+    private List<T> data;
+    protected OnItemClickListener<T> listener;
 
     public BaseDBRVAdapter() {
         data = new ArrayList<>();
     }
 
-    public BaseDBRVAdapter(List<Data> data) {
+    public BaseDBRVAdapter(List<T> data) {
         this.data = data == null ? new ArrayList<>() : data;
     }
 
@@ -41,7 +41,7 @@ public abstract class BaseDBRVAdapter<Data> extends RecyclerView.Adapter<BaseDBR
     @Override
     public void onBindViewHolder(@NonNull BaseDBRVHolder holder, final int position) {
         ViewDataBinding binding = DataBindingUtil.getBinding(holder.itemView);
-        final Data itemData = data.get(position);
+        final T itemData = data.get(position);
         if (binding != null) {
             binding.setVariable(holder.variableId, itemData);
             onBindViewHolder(itemData, binding, position);
@@ -62,7 +62,7 @@ public abstract class BaseDBRVAdapter<Data> extends RecyclerView.Adapter<BaseDBR
     /**
      * 绑定数据
      */
-    protected void onBindViewHolder(Data data, ViewDataBinding binding, int position) {
+    protected void onBindViewHolder(T data, ViewDataBinding binding, int position) {
     }
 
     /**
@@ -70,7 +70,7 @@ public abstract class BaseDBRVAdapter<Data> extends RecyclerView.Adapter<BaseDBR
      *
      * @param data
      */
-    public void setNewData(List<Data> data) {
+    public void setNewData(List<T> data) {
         this.data.clear();
         this.data.addAll(data);
         notifyDataSetChanged();
@@ -81,7 +81,7 @@ public abstract class BaseDBRVAdapter<Data> extends RecyclerView.Adapter<BaseDBR
      *
      * @param data
      */
-    public void addData(Data data) {
+    public void addData(T data) {
         this.data.add(data);
         notifyDataSetChanged();
     }
@@ -91,7 +91,7 @@ public abstract class BaseDBRVAdapter<Data> extends RecyclerView.Adapter<BaseDBR
      *
      * @param data
      */
-    public void addData(List<Data> data) {
+    public void addData(List<T> data) {
         this.data.addAll(data);
         notifyDataSetChanged();
     }
@@ -99,7 +99,7 @@ public abstract class BaseDBRVAdapter<Data> extends RecyclerView.Adapter<BaseDBR
     /**
      * 设置Item 长按、点击事件
      */
-    public void setOnItemListener(OnItemClickListener<Data> listener) {
+    public void setOnItemListener(OnItemClickListener<T> listener) {
         this.listener = listener;
     }
 }

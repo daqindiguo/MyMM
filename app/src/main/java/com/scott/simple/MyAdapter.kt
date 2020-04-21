@@ -2,9 +2,6 @@ package com.scott.simple
 
 import android.util.Log
 import android.view.ViewGroup
-import android.widget.ImageView
-import androidx.databinding.BindingAdapter
-import com.bumptech.glide.Glide
 import com.scott.adapter.BaseDBRVAdapter
 import com.scott.adapter.BaseDBRVHolder
 import com.scott.bean.BannerBean
