@@ -15,19 +15,18 @@ class RecycleViewActivity : BaseActivity<MainViewModel, ActivityRecycleViewBindi
 
     override val initVariableId: Int get() = BR.viewmodel
     override val rootViewId: Int get() = R.layout.activity_recycle_view
-    private lateinit var myAdapter:MyAdapter
+    private lateinit var myAdapter: MultAdapter
 
     override fun initView() {
-        recyclerview.layoutManager= LinearLayoutManager(this) as RecyclerView.LayoutManager?
-//        myAdapter= MyAdapter(listOf(), BR.viewmodel)
-        myAdapter= MyAdapter()
-        recyclerview.adapter=myAdapter
+        recyclerview.layoutManager = LinearLayoutManager(this) as RecyclerView.LayoutManager?
+        myAdapter = MultAdapter()
+        recyclerview.adapter = myAdapter
     }
 
     override fun initData() {
         viewModel.getBanner()
         viewModel.name.observe(this, Observer {
-            myAdapter.setNewData(viewModel.name.value)
+            myAdapter.setBannerBeans(it)
         })
     }
 }

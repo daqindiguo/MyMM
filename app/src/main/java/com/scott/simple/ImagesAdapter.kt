@@ -5,19 +5,20 @@ import com.scott.adapter.DataBoundViewHolder
 import com.scott.bean.BannerBean
 import com.scott.mymm.R
 import com.scott.mymm.databinding.ItemListBinding
+import com.scott.mymm.databinding.ItmeImagesBinding
 
 /**
  *  time:2020/4/20
  **/
-class MyAdapter:DataBoundAdapter<ItemListBinding>(R.layout.item_list) {
+class ImagesAdapter:DataBoundAdapter<ItmeImagesBinding>(R.layout.itme_images) {
     private var bannerList= ArrayList<BannerBean>()
 
     override fun bindItem(
-        holder: DataBoundViewHolder<ItemListBinding>,
+        holder: DataBoundViewHolder<ItmeImagesBinding>,
         position: Int,
         payloads: MutableList<Any>
     ) {
-       holder.binding.banner=bannerList[position]
+       holder.binding.mImage=bannerList[position]
     }
 
     fun setNewData(list:List<BannerBean>){
