@@ -6,9 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.scott.adapter.BaseDataBoundAdapter
 import com.scott.adapter.DataBoundViewHolder
 import com.scott.bean.BannerBean
-import com.scott.mymm.BR
 import com.scott.mymm.R
-import com.scott.mymm.databinding.ItemListBinding
 import kotlinx.android.synthetic.main.recyclerview1.view.*
 import java.util.*
 
