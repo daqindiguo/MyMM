@@ -29,7 +29,7 @@ class MainViewModel : BaseViewModel() {
         fun loadImage(imageView:ImageView,url:String?){
             Log.e("url===",""+url)
             Glide.with(imageView.context).load(url)
-                .placeholder(R.mipmap.ic_launcher)
+//                .placeholder(R.mipmap.ic_launcher)
                 .into(imageView);
         }
     }

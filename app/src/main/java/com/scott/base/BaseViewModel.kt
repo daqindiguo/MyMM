@@ -33,6 +33,7 @@ open class BaseViewModel : ViewModel(), LifecycleObserver {
                 success(it)
             }.onFailure {
                 hideLoading()
+                it.printStackTrace()
                 httpException(it as Exception)
             }
 
