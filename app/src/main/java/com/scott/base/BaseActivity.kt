@@ -12,6 +12,7 @@ import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.swiperefreshlayout.widget.CircularProgressDrawable
+import com.gyf.immersionbar.ImmersionBar
 import com.scott.ext.getVmClazz
 import com.scott.utils.DensityUtil
 import com.scott.utils.MaterialCircleImageView
@@ -33,6 +34,8 @@ abstract class BaseActivity<VM : BaseViewModel, DB : ViewDataBinding> : AppCompa
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        val immersionBar = ImmersionBar.with(this)
+        immersionBar.init()
         initViewDataBinding()
         initLoading()
         initView()

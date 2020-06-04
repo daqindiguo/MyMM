@@ -1,6 +1,7 @@
 package com.scott.utils;
 
 import android.content.Context;
+import android.content.res.Resources;
 import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.style.AbsoluteSizeSpan;
@@ -127,5 +128,15 @@ public class StringUtils {
         return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP,
                 spVal, context.getResources().getDisplayMetrics());
     }
+
+    /**
+     * 获取状态栏高度
+     */
+    public static int getStatusBarHeight(Context context) {
+        Resources resources = context.getResources();
+        int resourceId = resources.getIdentifier("status_bar_height", "dimen", "android");
+        return resources.getDimensionPixelSize(resourceId);
+    }
+
 
 }

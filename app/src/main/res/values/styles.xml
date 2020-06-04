@@ -24,4 +24,12 @@
         <item name="android:windowExitAnimation">@anim/dialog_exit</item>
     </style>
 
+    <style name="BottomNavigationActive">
+        <item name="android:textSize">10sp</item>
+    </style>
+
+    <style name="BottomNavigationInactive">
+        <item name="android:textSize">10sp</item>
+    </style>
+
 </resources>
