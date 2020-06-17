@@ -32,17 +32,6 @@
         <item name="android:textSize">10sp</item>
     </style>
 
-    <declare-styleable name="XXDrawableTextView">
-        <attr name="drawableWidth_left" format="dimension" />
-        <attr name="drawableHeight_left" format="dimension" />
-        <attr name="drawableWidth_top" format="dimension" />
-        <attr name="drawableHeight_top" format="dimension" />
-        <attr name="drawableWidth_right" format="dimension" />
-        <attr name="drawableHeight_right" format="dimension" />
-        <attr name="drawableWidth_bottom" format="dimension" />
-        <attr name="drawableHeight_bottom" format="dimension" />
-    </declare-styleable>
-
     <declare-styleable name="TextViewIcoN">
         <attr name="drawLeftWidth" format="dimension" />
         <attr name="drawLeftHeight" format="dimension" />
